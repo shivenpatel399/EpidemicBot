@@ -18,7 +18,7 @@ DM @shivpat._. on discord if you want me to turn on the bot. It will take about 
 ## Some of my other creations
 
 Here is a list of my other bots that I have created:
-**EntoID:** :
-**AstroBot** : 
+**EntoID:** : https://github.com/shivenpatel399/EntomologyID
+**AstroBot** : https://github.com/shivenpatel399/AstroID
 
 ## Have Fun!

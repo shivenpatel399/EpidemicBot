@@ -1,4 +1,4 @@
-# ASTRO ID BOT
+# EPIDEMIC ID BOT
 
 This is a bot that helps with practicing the Disease Detectives event in Science Olympiad. This bot is different from the other bots (listed in "Some of my other creations") because not only it has identificiation of
 different microbes but you also can practice for epidemiological vocabulary, identifying study biases, and practicing information about foodborne diseases listed by the Food and Drug Association (FDA)

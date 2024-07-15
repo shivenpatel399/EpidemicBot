@@ -1,7 +1,7 @@
 # Epidemic ID Bot
 
-This is a bot that helps with practicing the Disease Detectives event in Science Olympiad. This bot is different from the other bots (listed in "Some of my other creations") because not only it has identificiation of
-different microbes but you also can practice for epidemiological vocabulary, identifying study biases, and practicing information about foodborne diseases listed by the Food and Drug Association (FDA)
+This is a bot that helps with practicing the Disease Detectives event in Science Olympiad. This bot is different from the other bots (listed in "Some of my other creations") because not only it has identification of
+different microbes but you also can practice epidemiological vocabulary, identify study biases, and practice information about foodborne diseases listed by the Food and Drug Association (FDA)
 
 ## Manual
 
@@ -17,7 +17,7 @@ DM @shivpat._. on discord if you want me to turn on the bot. It will take about 
 
 ## Some of my other creations
 
-Here is a list of my other bots that I have created:
+Here is a list of the other bots that I have created:
 
 **EntoID:** : https://github.com/shivenpatel399/EntomologyID
 

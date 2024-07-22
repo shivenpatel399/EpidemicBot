@@ -9,7 +9,7 @@ This bot is special because it uses slash commands. When using this bot, do / an
 
 ## Inviting
 
-Invite the bot through this URL: https://rb.gy/t8z5t3
+Invite the bot through this Discord Invite URL: https://rb.gy/t8z5t3
 
 ## Turning On the Bot
 

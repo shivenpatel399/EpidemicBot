@@ -7,14 +7,6 @@ different microbes but you also can practice epidemiological vocabulary, identif
 
 This bot is special because it uses slash commands. When using this bot, do / and press on the bot icon so you can see the whole slash manual. 
 
-## Inviting
-
-Invite the bot through this Discord Invite URL: https://rb.gy/t8z5t3
-
-## Turning On the Bot
-
-DM @shivpat._. on discord if you want me to turn on the bot. It will take about 1-2 minutes to turn it on.
-
 ## Some of my other creations
 
 Here is a list of the other bots that I have created:

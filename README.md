@@ -15,4 +15,8 @@ Here is a list of the other bots that I have created:
 
 **AstroBot** : https://github.com/shivenpatel399/AstroID
 
+## Updates
+
+More topics will be added soon
+
 ## Have Fun!

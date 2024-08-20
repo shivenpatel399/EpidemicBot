@@ -12,7 +12,7 @@ from discord import app_commands
 from keep_alive import keep_alive
 
 keep_alive()
-bot = interactions.Client(token=BotToken)
+bot = interactions.Client(token="MTE2NTg4MjI2OTkwMzM3MjMxOQ.GAJz82.QB-wXCAEDtuXJsdEeMeDB1bbrV_GckrgLHXw54")
 robot = commands.Bot(command_prefix="!", intents=discord.Intents.all())
 # Study commands
 @bot.event()
@@ -45,7 +45,7 @@ epidemiology_definitions = {
     "John Snow": "1849-54 _ conducts a groundbreaking study on the waterborne transmission of cholera in London.",
     "Louis Pasteur": "1880s _ identifies the bacterial cause of anthrax and develops a vaccine.",
     "Robert Koch": "1843-1910 _ formalizes standards (postulates) to identify organisms causing infectious diseases.",
-    "Flu": "1910's Pendamic (Hint - Influenza)",
+    "Flu": "1910's Pandemic (Hint - Influenza)",
     "Joseph Goldberger": "1920 _ publishes a field study showing the dietary origin of pellagra.",
     "Flouride": "1940s _ supplements added to public water supplies in randomized community trials.",
     "Framingham Study": "1949 - Initiation of the __ of risk factors for cardiovascular disease.",
@@ -186,7 +186,7 @@ biases = {
   "Chronological" : "Relationship between time of recruitment and observed outcome", 
   "Compliance" : "Compliant participants differ",
   "Confirmation" : "When a researcher uses information to confirm hypothesis",
-  "Confounding" : "Causation, not variation (Randomize, Restrict, match)",
+  "Confounding" : "More than one factor affects causation of disease (Use Randomize, Restrict, or match to eliminate)",
   "Restrict" : "Prevent ppl with certain traits/behavior", 
   "Effect Modification" : "When exposure has diff effect on diff subgroups, ie multiplicative effect", 
   "Differential Misclassification" : "One way error. Cases more likely to be misqualified, etc",
@@ -245,6 +245,15 @@ microbe_id = {
   "Encephalitis": "Virus",
   "Pneumonia (Viral)": "Virus",
   "West Nile Fever": "Virus",
+  "Bronchitis": "Virus",
+  "Lassa": "Virus",
+  "SARS": "Virus",
+  "Marburg Disease": "Virus",
+  "Chikungunya": "Virus",
+  "Haemophilus Influenzae": "Virus",
+  "HPV": "Virus",
+  "Monkeypox": "Virus",
+  "RSV": "Virus",
   "Meningitis": "Bacteria",
   "Pneumonia (Bacterial)": "Bacteria",
   "Crown Gall Disease": "Bacteria",
@@ -263,11 +272,19 @@ microbe_id = {
   "Pertussis": "Bacteria",
   "Pseudomonas Aeruginosa": "Bacteria",
   "Rocky Mountain Spotted Fever": "Bacteria",
+  "Erlichiosis": "Bacteria",
   "Strep Throat": "Bacteria",
   "Syphilis": "Bacteria",
   "Tetanus": "Bacteria",
+  "Anasplasmosis": "Bacteria",
   "Tuberculosis": "Bacteria",
+  "Diphtheria": "Bacteria",
+  "Leptospirosis": "Bacteria",
+  "Meliodosis": "Bacteria",
+  "Psittacosis": "Bacteria",
   "Wolbachia": "Bacteria",
+  "Leprosy": "Bacteria",
+  "Brucellosis": "Bacteria",
   "Athlete's Foot": "Fungi",
   "Dutch Elm Disease": "Fungi",
   "Early Potato Blight": "Fungi",
@@ -277,26 +294,49 @@ microbe_id = {
   "White Nose Syndrome": "Fungi",
   "Batrachochytrium": "Fungi",
   "Ergotism": "Fungi",
+  "Aspergillosis": "Fungi",
+  "Cryptococcosis": "Fungi",
+  "Mucormycosis": "Fungi",
   "Cryptosporidiosis": "Protozoa",
+  "Cyclosporiasis": "Protozoa",
+  "Babesiosis": "Protozoa",
   "Giardiasis": "Protozoa",
   "Malaria": "Protozoa",
   "Naegleria": "Protozoa",
+  "Leishmaniasis": "Protozoa",
+  "African Trypanosomiasis": "Protozoa",
+  "Toxoplasmosis": "Protozoa",
   "Paralytic Shellfish Poisoning": "Protozoa",
   "Estuary Associated Syndrome": "Protozoa",
   "Chronic Wasting Disease": "Prion",
   "Kuru": "Prion",
   "Scrapie": "Prion",
   "Mad Cow Disease": "Prion",
+  "Creutzfeldt-Jakob Disease": "Prion",
+  "Gerstmann-Straussler-Scheinker syndrome": "Prion",
+  "Alpers syndrome": "Prion",
   "Hookworm": "Parasitic Worm",
   "Pinworm": "Parasitic Worm",
   "Schistosomiasis": "Parasitic Worm",
   "Tapeworm": "Parasitic Worm",
-  "Trichinosis": "Parasitic Worm"
+  "Trichinosis": "Parasitic Worm",
+  
 }
 correct_answers = {}
 correct_answers_pathogen = {}
 correct_biases = {}
 correct_microbe = {}
+race = 0
+microbescoreShivPat = 0
+
+
+@interactions.slash_command(
+  name="microbescore",
+  description="Shows session's microbe score",
+)
+async def get_score(ctx):
+  global microbescoreShivPat
+  await ctx.send(f"Your session microbe score is **{microbescoreShivPat}**")
 
 @interactions.slash_command(
   name="microbesquiz",
@@ -346,10 +386,12 @@ async def hintmicrobe(ctx: SlashContext, type_of_hint: str):
   opt_type=OptionType.STRING,
 )
 async def microbe(ctx: SlashContext, user_answer: str):
+  global microbescoreShivPat
   if ctx.author.id in correct_microbe:
     correct_answer_microbe = correct_microbe[ctx.author.id]  
     if user_answer == correct_answer_microbe:
       await ctx.send(f"Correct! The answer was **{correct_answer_microbe.upper()}**.")
+      microbescoreShivPat += 1
     else:
       await ctx.send(f"Incorrect. The answer was **{correct_answer_microbe.upper()}**. ")
     del correct_microbe[ctx.author.id]  
@@ -928,5 +970,5 @@ async def bias(ctx: SlashContext, user_answer: str):
   else:
     await ctx.send("No question has been asked. Use /biasquiz to get a question.")
 
-# robot.run(BotToken) # Uncomment this line to run devil commands. You must comment out study commands
+# robot.run("MTE2NTg4MjI2OTkwMzM3MjMxOQ.GQAguS.fuwsI9nAzGM5nZ4tZLJHeH2Dull4ddo2AStP-Y") # Uncomment this line to run devil commands. You must comment out study commands
 bot.start() # Uncomment this line to run study commands. Commend out devil lines.
